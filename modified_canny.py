@@ -8,11 +8,9 @@ import cv2
 import numpy as np
 
 def mod_canny(image, sigma):
-    
     v = np.median(image)
-    
     lower = int(max(0, (1.0 - sigma) * v))
     upper = int(min(255, (1.0 + sigma) * v))
-    processed_img = cv2.Canny(image, 250, 300)
+    processed_img = cv2.Canny(image, lower, upper)
     
     return processed_img
